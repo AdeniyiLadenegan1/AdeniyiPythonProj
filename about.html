@@ -1,58 +1,20 @@
-<html lang="en">
- <head>
-     <meta charset="UTF-8">
-     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <meta name="keywords" content="web design, affordabe web design, creator, developer, professional webdev">
-     <meta name ="author" content="Adeniyi Ladenegan">
-     <title>SKYDZYN WW | About</title>
-     <link rel="stylesheet" href="./css/style.css">
- </head>
- 
- <body>
-     <header>
-         <div class="container">
-            <div id="myLogo">
-                <h1><span class= "highlight">WEBWORKS</span> FOR</h1>
-                
-                <div class="box box3">
-                    <span style ="height: 6em" class="text1">S</span>
-                    <span style ="height: 6em" class="text2">K</span>
-                    <span style ="height: 6em" class="text3">Y</span>
-                    <span style ="height: 6em" class="text4">D</span>
-                    <span style ="height: 6em" class="text5">Z</span>
-                    <span style ="height: 6em" class="text6">Y</span>
-                    <span style ="height: 6em" class="text7">G</span>
-                    <span style ="height: 6em" class="text8">N</span>
-                </div>  
-                <img id="skylogo" src ="./img/assets/logo.png" alt="logo"> 
-            </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">HOME</a></li>
-                <li><a class ="current"><a href="about.html">ABOUT</a></li>
-                <li><a href="contact.html">CONTACT</a></li>
-                <li><a href="portfolio.html">PORTFOLIO</a></li>
-                <li><a href="team.html">TEAM</a></li>
-            </ul>
-        </nav>
-         </div >
+{% extends "layout.html"%}
 
-         <div id ="crystal" src ="./img/assets/crs.png"></div>
+{% block content %}
 
-     </header>
 
-     <section id ="newcontain">
-         
-        <link rel="preconnect" href="https://fonts.gstatic.com"> 
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+<section class ="jumbotron">
+<section id ="newcontain">
 
-     <div clas="container">
-
+     <div class="container">
+        {% load static %}
+        
         <h1>The Cyber Guards</h1>
         <p>We are your one stop organization for web digital services, Cybersecurity and Applications development</p>
         <p>When you need it done, quick, fast and of the best quality, then we are a call away.</p>
-    
+        
+    </div>
+    </div>
      </section>
 
      <section id="profile">
@@ -84,7 +46,11 @@
 
         <div class="box box1">
             <h1>ENROL TODAY</h1>
-            <img src ="./img/assets/analyst.png">
+
+        
+
+            {% load static %}
+            <img src="{% static 'img/analyst.png'%}"  width="100%" alt="cyber image">
         </div>
 
         <div class="box box2">
@@ -97,7 +63,7 @@
         </div>
     </section>
 
-        <section id="Enrol">
+    
 
             <div class="wrapper2">
            
@@ -113,65 +79,45 @@
                      Web apps design and implementation.
                  </h2>
                 </div>
-                
-                <div class="box box2">
-        
-                        <form class="area">
-                            <h3>ENROL NOW</h3>
-                         <div>
-                             <label>First Name</label><br>
-                             <input type="text" placeholder = "First Name">
-                         </div>
-                
-                        <div>
-                             <label>Last Name</label><br>
-                             <input type="text" placeholder = "Last Name">
-                         </div>
-                
-                         <div>
-                             <label>Email</label><br>
-                             <input type="email" placeholder = "Email Address">
-                         </div>
-                        
-                        <div>
-                            <label>Phone</label><br>
-                             <input type="text" placeholder = "Phone number">
-                        </div>
-                        <div>
-                            <label>Address</label><br>
-                            <input type="adress" placeholder = "Address">
-                        </div>
-                       
-                       <div>
-                           <label>Specialization</label><br>
-                            <input type="text" placeholder = "Specialization">
-                       </div>
-
-                       <div>
-                        <label>Date of Birth</label><br>
-                        <input type="date" placeholder = "Date">
-                        </div>
-                   
-                        <div>
-                        <label>Choose a course</label><br>
-                        <input type="text" placeholder = "Course">
-                        </div>
-                
-                         <button class ="button_1" type="Submit">ENROL</button>
-          
-                        </form>
-                    </div>
             </div>
-            </div>
-        
-             </section>
-            
-    <script src="crystal.js"></script>
-     <script src="app.js"></script>
-     <script src="jquery.js"></script>
 
-     <footer>
-         <p> Adeniyi Ladenegan web designers world, Copyright &copy; 2021</p>
-     </footer>
- </body>
- </html>
+
+    <div class ="wrapper4">
+
+    <div id="box box2">
+     <h1>{{ note }}</h1>
+   
+    <form action="about" method="POST">
+        {% csrf_token %}
+        {{ EnrolForm }} 
+    
+        <!-- <input type="text" placeholder = "First Name">
+        
+        <input type="text" placeholder = "last Name">
+        
+        <input type="email" placeholder = "Email Address">
+       
+        <input type="text" placeholder = "Phone number">
+        
+        <input type="text" placeholder = "Address">
+        
+        <input type="text" placeholder = "Chosen course">
+           
+        <input type="text" placeholder = "specialization">
+     
+        <input type="text" placeholder = "Password"> -->
+           
+        <input id="send" type="submit" value="ENROL">
+
+        </form>
+    </div>
+    </div>
+</section>
+</section>           
+
+    <script src="{% static 'js/crystal.js'%}"></script>
+    <script src="{% static 'js/app.js'%}"></script>
+    <script src="{% static 'js/jquery.js'%}"></script>
+
+
+{% endblock %}

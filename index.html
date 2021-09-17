@@ -1,156 +1,96 @@
-<html lang="en">
- <head>
-     <meta charset="UTF-8">
-     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <meta name="keywords" content="web design, affordabe web design, creator, developer, professional webdev">
-     <meta name ="author" content="Adeniyi Ladenegan">
-     <link rel="preconnect" href="https://fonts.gstatic.com"> 
-            <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">  
-            
-     
-            
-     <title>This Python</title>
-     
+{% extends "layout.html"%}
 
-     <link rel="stylesheet" href="./css/style.css">
- </head>
- <body>
-     <header>
-         <div class="container">
-
-            
-            <div id="myLogo">
-                <h1><span class= "highlight">WEBWORKS</span>FOR</h1>
-                
-                <div class="box box3">
-                    <span style ="height: 6em" class="text1">S</span>
-                    <span style ="height: 6em" class="text2">K</span>
-                    <span style ="height: 6em" class="text3">Y</span>
-                    <span style ="height: 6em" class="text4">D</span>
-                    <span style ="height: 6em" class="text5">Z</span>
-                    <span style ="height: 6em" class="text6">Y</span>
-                    <span style ="height: 6em" class="text7">G</span>
-                    <span style ="height: 6em" class="text8">N</span>
-                </div>
-    
-                
-                <img id="skylogo" src ="./img/assets/logo.png" alt="logo"> 
-            </div>
-        
-            <nav>
-                <ul>
-                    <li><a class ="current"><a href="index.html">HOME</a></li>
-                    <li><a href= "about.html">ABOUT</a></li>
-                    <li><a href="contact.html">CONTACT</a></li>
-                    <li><a href="portfolio.html">PORTFOLIO</a></li>
-                    <li><a href="team.html">TEAM</a></li>
-                </ul>
-            </nav>
-         </div >
-         <div id ="crystal" src ="./img/assets/crs.png"></div>
-     </header>
-
-     
-     <section id ="showcase">
-     <div clas="container">
-        <h1>Professional Digital Services</h1>
-        <p>We create the best user experience, We make things work!</p>
-     </div>
-     </section>
+{% block content %}
 
 
-     <section id="register">
 
-    <div class="wrapper2">
-   
-        <div class="box box1">
-
-        
-        <div id="poly">
-            <div id="star"></div>
-         </div>
-         <h2>Sign up to learn more about the amazing sites and Apps we build
-             We are a reputable organization with years of experience.
-        </h2>
-            
-         
-        </div>
-        
-        <div class="box box2">
-
-                <form class="area">
-                    <h3>SIGNUP NOW</h3>
-                 <div>
-                     <label>Full Name</label><br>
-                     <input type="text" placeholder = "Full Name">
-                 </div>
-        
-                 <div>
-                     <label>Email</label><br>
-                     <input type="email" placeholder = "Email Address">
-                 </div>
-                
-                <div>
-                    <label>Phone</label><br>
-                     <input type="text" placeholder = "Phone number">
-                </div>
-        
-                 <button class ="button_1" type="Submit">SIGNUP</button>
-  
-                </form>
-            </div>
-    </div>
-    </div>
-
-     </section>
+    <section id ="showcase">
+            {% load static %}
        
-     
+         <h1>Professional Digital Services</h1>
+        <p>We create the best user experience, We make things work!</p>
+   <div clas="container">              
+          
+        </div>
+    </section>
+   
+   
+        <section id="register">
+   
+       <div class="wrapper2">
+      
+           <div class="box box1">
+   
+           
+           <div id="poly">
+               <div id="star"></div>
+            </div>
+            <h2>Register to subscribe to our newsletter here!
+                Sign up to learn more about the amazing sites and Apps we buiild
+                We are a reputable organization with years of experience.
+           </h2>
+               
+            
+           </div>
+           
+           <div class="box box2">
+              
+                   
+                       {{ indexForm }}
+                    <form action="{% url 'profile' %}" method="post">
+                        {% csrf_token %}
+
+                        <h2>{{ note }}</h2>
+                       <h3>SIGNUP NOW</h3>
+
+                       <h2>{{ note }}</h2>
+                                 
+               </div>
+       </div>
+       </div>
+   
+        </section>
+          
+        
         <div class="wrapper">
-
-
+   
+   
             <div class="box box1">
                 <h1>CYBERGEEKS</h1>
-                <img src ="./img/assets/cybersec.png">
+                {% load static %}
+                <img src="{% static 'img/cybersec.png'%}"  width="100%" alt="cyber image">
+              
             </div>
-
+   
             <div class="box box2">
+           
                 <h1>PROFESSIONALISM</h1>
                 <p> We guarantee the best at what we do. Look no further as the team is ready to 
-                    tackle whatever challenge you have. Buy any three of our products and get the 
-                    next two completely free of charge.                 
+                       tackle whatever challenge you have. Buy any three of our products and get the 
+                       next two completely free of charge.                 
                 </p>
-
+   
             </div>
-
-
             <div class="box box1">
                 <h1>QUALITY</h1>
-                <img src ="./img/assets/ehacks.png">
+                {% load static %}
+                <img src="{% static 'img/ehacks.png'%}"  width="100%" alt="cyber image">
             </div>
-
+   
             <div class="box box2">
                 <h1>SPEED</h1>
                 <h3>Seeing things in different perspetives, we assure you of exceptional 
-                    and beautiful delivery of your projects in a timely and world class 
-                    environment. We employ the best tactics of Trust and Honesty!
+                       and beautiful delivery of your projects in a timely and world class 
+                       environment. We employ the best tactics of Trust and Honesty!
                 </h3>
+            </div>       
+           </div>
 
-            </div>
-            
-        </div>
-
-    <script src="crystal.js"></script>
-     <script src="app.js"></script>
-     <script src="jquery.js"></script>
-
-     <footer>
-         <p> Adeniyi Ladenegan web designers world, Copyright &copy; 2021</p>
-     </footer>
-
-     
-     
- </body>
- </html>
+        
+</section>
+    <script src="{% static 'js/crystal.js'%}"></script>
+    <script src="{% static 'js/app.js'%}"></script>
+    <script src="{% static 'js/jquery.js'%}"></script>
 
 
+{% endblock %}

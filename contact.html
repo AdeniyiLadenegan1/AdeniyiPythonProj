@@ -1,50 +1,10 @@
-<html lang="en">
- <head>
-     <meta charset="UTF-8">
-     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <meta name="keywords" content="web design, affordabe web design, creator, developer, professional webdev">
-     <meta name ="author" content="Adeniyi Ladenegan">
-     <link rel="preconnect" href="https://fonts.gstatic.com"> 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+{% extends "layout.html"%}
 
-     <title>This Python</title>
-     <link rel="stylesheet" href="./css/style.css">
- </head>
- <body>
-    <header>
-    <div class="container">
-            
-        <div id="myLogo">
+{% block content %}
 
-            <h1><span class= "highlight">WEBWORKS</span> FOR</h1>
-                
-            <div class="box box3">
-                <span style ="height: 6em" class="text1">S</span>
-                <span style ="height: 6em" class="text2">K</span>
-                <span style ="height: 6em" class="text3">Y</span>
-                <span style ="height: 6em" class="text4">D</span>
-                <span style ="height: 6em" class="text5">Z</span>
-                <span style ="height: 6em" class="text6">Y</span>
-                <span style ="height: 6em" class="text7">G</span>
-                <span style ="height: 6em" class="text8">N</span>
-                </div>   
-                <img id="skylogo" src ="./img/assets/logo.png" alt="logo">    
-            </div>   
-        <nav>
-            <ul>
-                <li><a href="index.html">HOME</a></li>
-                <li><a href="about.html">ABOUT</a></li>
-                <li><a class ="current"><a href="contact.html">CONTACT</a></li>
-                <li><a href="portfolio.html">PORTFOLIO</a></li>
-                <li><a href="team.html">TEAM</a></li>
-            </ul>
-        </nav>
-         </div >
-         <div id ="crystal" src ="./img/assets/crs.png"></div>
-     </header>
 
-     <section id ="contak">
+<section class ="jumbotron">
+ <section id ="contak">
         <div clas="container">
            <h1>Applications development specialists</h1>
            <p>We develop amazing sites and apllications. 
@@ -105,19 +65,20 @@
        </aside>
        </div>
            <div class="wrapper">
-   
+            
            <div class="box box1">
                <h1>ENROL TODAY</h1>
-               <img src ="./img/assets/pgm.png">
+               {% load static %}
+               <img src="{% static 'img/pgm.png'%}"  width="100%" alt="cyber image">
            </div>
    
            <div class="box box2">
-               <h1>CHOOSE A COURSE</h1>
-               <p>Web Development</p>
-                <p>Cybersecurity</p>  
-                <p>Application Specialist</p>
-                <p>Game Developer</p>
-                <p>Database Analyst</p>
+               <h1>CHOOSE A DEPARTMENT FOR ENQUIRIES</h1>
+               <p>WebDev DEPT</p>
+                <p>CyberSec DEPT</p>  
+                <p>App Specialist DEPT</p>
+                <p>Data Analysis DEPT</p>
+                <p>General Enquiries</p>
            </div>
        </section>
    
@@ -136,46 +97,47 @@
                         We believe in making ammends where necessary and we are here to provide 
                         solutions to any of your enquiries. Our specialists are here for you every step of the way.
                     </h2>
-                       
                    </div>
 
+
                    <div class="box box2">
-           
-                    <form class="area">
+                    <form action="{% url 'contact' %}" method ="post">
+                        {% csrf_token %}
+                        <form class="area">
                         <div>
-                            <label>Full Name</label><br>
-                            <input type="text" placeholder = "Full Name">
+                        <label>Full Name</label><br>
+                        <input type="text" placeholder = "Full Name">
                         </div>
-               
                         <div>
-                            <label>Email</label><br>
-                            <input type="email" placeholder = "Email Address">
+                        <label>Email</label><br>
+                        <input type="email" placeholder = "Email Address">
                         </div>
-                       
-                       <div>
-                           <label>Phone</label><br>
-                            <input type="text" placeholder = "Phone number">
-                       </div>
-               
                         <div>
-                            <label>Message</label><br>
-                            <textarea placeholder = "Message"></textarea>
+                        <label>Phone</label><br>
+                        <input type="text" placeholder = "Phone number">
+                        </div>
+                        <div> 
+                        <label>To Department</label><br>
+                        <input type="text" placeholder = "Department">
+                        </div>
+                        <div>
+                        <label>Message</label><br>
+                        <textarea placeholder = "Message"></textarea>
                         </div>
                         <button class ="button_1" type="Submit">Send</button>
-               
+                            <h1>Send us a message, we are at your service.</h1>
                        </form>
-                       </div>
+                    </form>
+                
+                    </div>
                </div>
                </div>
            
-                </section>
+    </section>
+     </section>
 
-     <script src="crystal.js"></script>
-     <script src="app.js"></script>
-     <script src="jquery.js"></script>
+    <script src="{% static 'js/crystal.js'%}"></script>
+    <script src="{% static 'js/app.js'%}"></script>
+    <script src="{% static 'js/jquery.js'%}"></script>
 
-     <footer>
-         <p> Adeniyi Ladenegan web designers world, Copyright &copy; 2021</p>
-     </footer>
- </body>
- </html>
+{% endblock %}
